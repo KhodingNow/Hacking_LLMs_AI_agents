@@ -27,8 +27,8 @@ fn main() {
 
     println!("Hello, world! Here is where I explore hacking LLMs, AI agents with Serde...");
 
-    // Customizing structs with Serde attributes
-    // - Field Renaming and Skipping
+   // Customizing structs with Serde attributes
+   // - Field Renaming and Skipping
     
     #[derive(Serialize, Deserialize, Debug)]
     #[serde(rename_all = "snake_case")]
@@ -46,13 +46,14 @@ fn main() {
         password_hash: "hashed".to_string(),
     };
 
+
     let json = serde_json::to_string(&user).unwrap();
     println!("Serialized: {}", json);
 
     // Working with enums
     // - Basic enums with Variants
 
-    // SECURE parrtern to prevent invalid USER ID
+    // SECURE pattern to prevent invalid USER ID
 
 
     #[derive(Serialize, Deserialize, Debug)]
@@ -106,9 +107,5 @@ where
     // Deserialization with error handling
     let invalid_json = r#"{"name": "Tobu", "age": "Twenty"}"#; // "age" is a string, not a u8
 
-    // Attempt to deserialize and handle errors
-    match serde_json::from_str::<Person>(invalid_json) {
-        Ok(person) => println!("Deserialized successfully: {:?}", person),
-        Err(e) => println!("Failed to deserialize: {}", e),
-    }
+  
 }
